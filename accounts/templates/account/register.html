@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Create an account{% endblock  %}
+
+{% block content %}
+<style>
+    form{
+        display: block;
+        padding: 0 20px;
+    }
+    form label{
+        display:none
+    }
+    form p{
+        flex-direction: row-reverse;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    form span{
+        margin-bottom: 20px;
+    }
+    form input{
+        outline: none;
+        display: block;
+        
+        border-radius: 20px;
+        border: none;
+        padding: 10px;
+        padding-left: 30px;
+        font-size: 16px;
+    }
+    .form__title{
+        text-align: center;
+    }
+    .form__descr{
+        text-align: center;
+        font-size: 14px;
+    }
+    .login-form{
+        padding: 20px 0;
+        border-radius: 20px;
+        margin: 0 auto;
+        margin-top: 50px;
+        max-width: 500px;
+        background-color: #9932cc;
+    }
+    .btn{
+        cursor: pointer;
+        display: block;
+        min-width: 300px;
+        padding: 16px 0;
+        background-color: #42aaff;
+        transition: 0.3s all;
+    }
+    .btn:hover{
+        background-color: #42aaff;
+    }
+    .login__link{
+        text-decoration: underline;
+        transition: 0.3s all;
+        color: black;
+    }
+    .login__link:hover{
+        color: #00BFFF;
+    }
+    
+</style>
+    <div class="login-form">
+        <h1 class="form__title">Создайте аккаунт</h1>
+        <div class="login-form">
+            <form action="." method="POST" class="form__login">
+                {{ user_form.as_p }}
+                {% csrf_token %}
+                <p><input type="submit" value="Создать аккаунт" class="btn" style="margin: 0 auto;margin-top: 40px;"></p>
+            </form>
+        </div>
+    </div>
+{% endblock  %}
